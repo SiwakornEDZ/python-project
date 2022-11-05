@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>970</width>
+    <height>813</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTreeWidget" name="imagetreeWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>651</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <column>
+     <property name="text">
+      <string>รูปภาพ</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>RSU</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>รายละเอียด</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>RSU</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>RSU</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>รายการกาแฟ</string>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="verticalScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>50</y>
+      <width>20</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>50</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>RSU</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>รายการที่เลือก</string>
+    </property>
+   </widget>
+   <widget class="QTreeWidget" name="selecttreeWidget">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>80</y>
+      <width>231</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>รายการ</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>RSU</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>จำนวน</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>RSU</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </column>
+   </widget>
+   <widget class="QScrollBar" name="verticalScrollBar_2">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>70</y>
+      <width>16</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>470</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>RSU</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>ราคาทั้งหมด</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>500</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>RSU</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>บาท</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="totalpricetextBrowser">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>500</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>970</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>เพิ่มเติม</string>
+    </property>
+    <addaction name="insertaction"/>
+    <addaction name="editaction"/>
+    <addaction name="deleteaction"/>
+    <addaction name="recodeaction"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>เกี่ยวกับ</string>
+    </property>
+    <addaction name="actionAbout_us_2"/>
+   </widget>
+   <addaction name="menuEdit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionAbout_us">
+   <property name="text">
+    <string>About us</string>
+   </property>
+  </action>
+  <action name="actionReciept_history">
+   <property name="text">
+    <string>Reciept history</string>
+   </property>
+  </action>
+  <action name="actionAbout_us_2">
+   <property name="text">
+    <string>About us</string>
+   </property>
+  </action>
+  <action name="actionAdd_menus">
+   <property name="text">
+    <string>Add menus</string>
+   </property>
+  </action>
+  <action name="actionEdit_menus">
+   <property name="text">
+    <string>Edit menus</string>
+   </property>
+  </action>
+  <action name="actionDelete_menus">
+   <property name="text">
+    <string>Delete menus</string>
+   </property>
+  </action>
+  <action name="actionReciept_history_2">
+   <property name="text">
+    <string>Reciept history</string>
+   </property>
+  </action>
+  <action name="actionMenus">
+   <property name="text">
+    <string>Menus</string>
+   </property>
+  </action>
+  <action name="insertaction">
+   <property name="text">
+    <string>เพิ่มเมนูกาแฟ</string>
+   </property>
+  </action>
+  <action name="editaction">
+   <property name="text">
+    <string>แก้ไขเมนูกาแฟ</string>
+   </property>
+  </action>
+  <action name="deleteaction">
+   <property name="text">
+    <string>ลบเมนูกาแฟ</string>
+   </property>
+  </action>
+  <action name="recodeaction">
+   <property name="text">
+    <string>ดูประวัติการขาย</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
