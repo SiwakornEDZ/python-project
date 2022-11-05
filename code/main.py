@@ -9,6 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+import upload
+import aboutus
 
 
 class Ui_MainWindow(object):
@@ -128,9 +131,44 @@ class Ui_MainWindow(object):
         self.menuHelp.addAction(self.actionAbout_us_2)
         self.menuBar.addAction(self.menuEdit.menuAction())
         self.menuBar.addAction(self.menuHelp.menuAction())
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.actionAbout_us_2.triggered.connect(self.openaboutus)
+        self.editaction.triggered.connect(self.openedit)
+        self.deleteaction.triggered.connect(self.opendelete)
+        self.recodeaction.triggered.connect(self.openrecoad)
+
+    def openaboutus(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = aboutus.Ui_uiAboutUs()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openupload(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openedit(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    
+    def opendelete(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openrecoad(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = upload.Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()    
+    
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -158,6 +196,7 @@ class Ui_MainWindow(object):
         self.editaction.setText(_translate("MainWindow", "แก้ไขเมนูกาแฟ"))
         self.deleteaction.setText(_translate("MainWindow", "ลบเมนูกาแฟ"))
         self.recodeaction.setText(_translate("MainWindow", "ดูประวัติการขาย"))
+
 
 
 if __name__ == "__main__":
