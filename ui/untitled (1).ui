@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="menutableWidget">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -123,7 +123,7 @@
      <string>รายการที่เลือก</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="selecttableWidget">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -188,6 +188,16 @@
     </property>
     <property name="text">
      <string>ราคาทั้งหมด</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>570</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -289,16 +299,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="totalcosttextBrowser">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>570</y>
-      <width>191</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menuBar">
@@ -314,16 +314,16 @@
     <property name="title">
      <string>เพิ่มเติม</string>
     </property>
-    <addaction name="insertaction"/>
-    <addaction name="editanddeleteaction"/>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
     <addaction name="separator"/>
-    <addaction name="recordaction"/>
+    <addaction name="action_4"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>เกี่ยวกับ</string>
     </property>
-    <addaction name="aboutusaction"/>
+    <addaction name="actionAbout_us_2"/>
    </widget>
    <addaction name="menuEdit"/>
    <addaction name="menuHelp"/>
@@ -338,7 +338,7 @@
     <string>Reciept history</string>
    </property>
   </action>
-  <action name="aboutusaction">
+  <action name="actionAbout_us_2">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -371,7 +371,7 @@
     <string>Menus</string>
    </property>
   </action>
-  <action name="insertaction">
+  <action name="action">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -385,7 +385,7 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="editanddeleteaction">
+  <action name="action_2">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -401,7 +401,7 @@
     <string>ลบเมนูกาแฟ</string>
    </property>
   </action>
-  <action name="recordaction">
+  <action name="action_4">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -411,6 +411,7 @@
   </action>
  </widget>
  <resources>
+  <include location="image.qrc"/>
   <include location="image.qrc"/>
  </resources>
  <connections/>

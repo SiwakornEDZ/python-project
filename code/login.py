@@ -54,7 +54,7 @@ class Ui_Dialog(object):
                                         "}")
         self.passwordText.setObjectName("passwordText")
         self.loginbutton = QtWidgets.QPushButton(Dialog)
-        self.loginbutton.setGeometry(QtCore.QRect(180, 370, 141, 51))
+        self.loginbutton.setGeometry(QtCore.QRect(185, 320, 141, 51))
         font = QtGui.QFont()
         font.setFamily("Cloud Light")
         font.setPointSize(18)
@@ -138,16 +138,10 @@ class Ui_Dialog(object):
         self.window.show()
         closeWindows()
 
-        # with sqlConnection:
-        #        with sqlConnection.cursor() as cursor:
-        #        # Create a new record
-        #                print("Connected")
-
 def closeWindows():
     Dialog.close()
 
 def openHomepage2():
-  #  Ui_Dialog.Dialog.hide()
     Dialog2 = QtWidgets.QDialog()
     ui = main.Ui_uiHomePage()
     ui.setupUi(Dialog2)
