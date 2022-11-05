@@ -28,10 +28,10 @@ class Ui_MainWindow(object):
         self.menutableWidget.setGeometry(QtCore.QRect(20, 50, 651, 561))
         self.menutableWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.menutableWidget.setTabletTracking(False)
-        self.menutableWidget.setDragEnabled(False)
+        self.menutableWidget.setDragEnabled(True)
         self.menutableWidget.setObjectName("menutableWidget")
         self.menutableWidget.setColumnCount(3)
-        self.menutableWidget.setRowCount(0)
+        # self.menutableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
@@ -50,6 +50,7 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(2, item)
+        self.addList()
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 20, 201, 21))
         font = QtGui.QFont()
@@ -252,12 +253,22 @@ class Ui_MainWindow(object):
         con = pymysql.connect(host="localhost", database="project python",
                                   user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
-        cursor.execute("SELECT MENU_NAME,MENU_PRICE,MENU_DETAIL,FROM coffee")
+        cursor.execute("SELECT MENU_NAME,MENU_PRICE,MENU_DETAIL FROM coffee")
         data = cursor.fetchall()
         print(data)
+        self.menutableWidget.setRowCount(20)
+        tablerow = 0
         for i in data:
-                self.menutableWidget.addItem(i[0]+ "\n  "+str(i[1])+" \n" + ""+str(i[2])+"\n")
-                self.menutableWidget.item(data.index(i)).setData(1,i[2])
+            self.menutableWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(i[0]))
+            self.menutableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(i[1])))
+            self.menutableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(i[2]))
+            tablerow += 1
+                # self.maintableWidget.item(data.index(i)).setData(1,i[0])
+                # # self.listWidget.item(data.index(i)).setRowCount(0)
+                # self.maintableWidget.addItem(str(i[1]))
+                # self.maintableWidget.item(data.index(i)).setData(1,i[1])
+                # self.maintableWidget.addItem(str(i[2]))
+                # self.maintableWidget.item(data.index(i)).setData(1,i[2])
         con.close()
 
 
