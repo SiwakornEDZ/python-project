@@ -9,13 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-from database import *
-import pymysql
-import upload
-import aboutus
-import edit
-import image
 
 
 class Ui_MainWindow(object):
@@ -54,7 +47,6 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(0, item)
-        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
@@ -64,21 +56,18 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         item.setForeground(brush)
         self.menutableWidget.setHorizontalHeaderItem(1, item)
-        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(2, item)
-        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(3, item)
-        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
@@ -87,8 +76,6 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(4, item)
-        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.addList()
         self.menutableWidget.horizontalHeader().setVisible(True)
         self.menutableWidget.horizontalHeader().setCascadingSectionResizes(True)
         self.menutableWidget.horizontalHeader().setDefaultSectionSize(120)
@@ -191,13 +178,10 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.aboutusaction.triggered.connect(self.openaboutus)
-        self.editanddeleteaction.triggered.connect(self.openedit)
-        self.insertaction.triggered.connect(self.openupload)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Coffee Admin"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Coffee Shop"))
         self.menutableWidget.setToolTip(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.menutableWidget.setSortingEnabled(False)
         item = self.menutableWidget.horizontalHeaderItem(0)
@@ -229,50 +213,7 @@ class Ui_MainWindow(object):
         self.editanddeleteaction.setText(_translate("MainWindow", "แก้ไขหรือลบเมนูกาแฟ"))
         self.action_3.setText(_translate("MainWindow", "ลบเมนูกาแฟ"))
         self.recordaction.setText(_translate("MainWindow", "ดูประวัติการขาย"))
-        self.insertButton.clicked.connect(self.openupload)
-        self.editButton.clicked.connect(self.openedit)
-        self.refreshButton.clicked.connect(self.refresh)
 
-    def addList(self):
-        print('fetching data')
-        con = pymysql.connect(host="localhost", database="project python",
-                                  user=userSQL, password=passSQL, charset="utf8")
-        cursor = con.cursor()
-        cursor.execute("SELECT COFFEE_ID,MENU_NAME,MENU_PRICE,MENU_DETAIL,MENU_Status FROM coffee")
-        data = cursor.fetchall()
-        print(data)
-        tablerow = 0
-        for i in data:
-            self.menutableWidget.insertRow(tablerow)
-            self.menutableWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(i[0]))
-            self.menutableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(i[1]))
-            self.menutableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(i[2])))
-            self.menutableWidget.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(i[3]))
-            self.menutableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(i[4])))
-            tablerow += 1
-        con.close()
-    
-    def openaboutus(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = aboutus.Ui_uiHomePage()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
-    def openupload(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = upload.Ui_Form()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
-    def openedit(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = edit.Ui_edit()
-        self.ui.setupUi(self.window)
-        self.window.show()
-    
-    def refresh(self):
-        self.menutableWidget.clear()
-        self.addList()
 
 
 if __name__ == "__main__":
