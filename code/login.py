@@ -46,7 +46,7 @@ class Ui_Dialog(object):
         self.passwordText = QtWidgets.QLineEdit(Dialog)
         self.passwordText.setGeometry(QtCore.QRect(140, 260, 240, 40))
         font = QtGui.QFont()
-        font.setFamily("Unispace")
+        font.setFamily("RSU")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
@@ -71,7 +71,9 @@ class Ui_Dialog(object):
         self.loginbutton.setGeometry(QtCore.QRect(190, 340, 141, 51))
         font = QtGui.QFont()
         font.setFamily("RSU")
-        font.setPointSize(20)
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
         self.loginbutton.setFont(font)
         self.loginbutton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
@@ -100,13 +102,15 @@ class Ui_Dialog(object):
 "}")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+        Dialog.setWindowIcon(QtGui.QIcon(':image/icon.png'))
+        
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Login page"))
+        Dialog.setWindowTitle(_translate("Dialog", "Login"))
         self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
         self.passwordText.setPlaceholderText(_translate("Dialog", "Password"))
         self.loginbutton.setText(_translate("Dialog", "Login"))

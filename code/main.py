@@ -16,12 +16,12 @@ import upload
 import aboutus
 import edit
 import image
-
+import ctypes
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(851, 763)
+        MainWindow.setFixedSize(848, 740)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.menutableWidget = QtWidgets.QTableWidget(self.centralwidget)
@@ -47,7 +47,13 @@ class Ui_MainWindow(object):
         self.menutableWidget.setGridStyle(QtCore.Qt.SolidLine)
         self.menutableWidget.setObjectName("menutableWidget")
         self.menutableWidget.setColumnCount(5)
-        self.menutableWidget.setRowCount(0)
+        self.menutableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        header = self.menutableWidget.horizontalHeader() 
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
@@ -148,9 +154,6 @@ class Ui_MainWindow(object):
         self.menuHelp = QtWidgets.QMenu(self.menuBar)
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menuBar)
-        self.toolBar = QtWidgets.QToolBar(MainWindow)
-        self.toolBar.setObjectName("toolBar")
-        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionAbout_us = QtWidgets.QAction(MainWindow)
         self.actionAbout_us.setObjectName("actionAbout_us")
         self.actionReciept_history = QtWidgets.QAction(MainWindow)
@@ -194,6 +197,7 @@ class Ui_MainWindow(object):
         self.aboutusaction.triggered.connect(self.openaboutus)
         self.editanddeleteaction.triggered.connect(self.openedit)
         self.insertaction.triggered.connect(self.openupload)
+        MainWindow.setWindowIcon(QtGui.QIcon(':image/icon.png'))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -216,7 +220,6 @@ class Ui_MainWindow(object):
         self.refreshButton.setText(_translate("MainWindow", "รีเฟรช"))
         self.menuEdit.setTitle(_translate("MainWindow", "เพิ่มเติม"))
         self.menuHelp.setTitle(_translate("MainWindow", "เกี่ยวกับ"))
-        self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
         self.actionAbout_us.setText(_translate("MainWindow", "About us"))
         self.actionReciept_history.setText(_translate("MainWindow", "Reciept history"))
         self.aboutusaction.setText(_translate("MainWindow", "About us"))
@@ -239,7 +242,7 @@ class Ui_MainWindow(object):
                                   user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
         cursor.execute("SELECT COFFEE_ID,MENU_NAME,MENU_PRICE,MENU_DETAIL,MENU_Status FROM coffee")
-        data = cursor.fetchall()
+        data = list(cursor.fetchall())
         print(data)
         tablerow = 0
         for i in data:
@@ -271,8 +274,22 @@ class Ui_MainWindow(object):
         self.window.show()
     
     def refresh(self):
-        self.menutableWidget.clear()
-        self.addList()
+        print('refreshed data in the table')
+        self.menutableWidget.setRowCount(0)
+        con = pymysql.connect(host="localhost", database="project python",
+                                  user=userSQL, password=passSQL, charset="utf8")
+        cursor = con.cursor()
+        cursor.execute("SELECT COFFEE_ID,MENU_NAME,MENU_PRICE,MENU_DETAIL,MENU_Status FROM coffee")
+        data = list(cursor.fetchall())
+        tablerow = 0
+        for i in data:
+            self.menutableWidget.insertRow(tablerow)
+            self.menutableWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(i[0]))
+            self.menutableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(i[1]))
+            self.menutableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(i[2])))
+            self.menutableWidget.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(i[3]))
+            self.menutableWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(i[4])))
+            tablerow += 1
 
 
 if __name__ == "__main__":

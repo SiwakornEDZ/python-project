@@ -18,6 +18,7 @@ class Ui_edit(object):
     def setupUi(self, edit):
         edit.setObjectName("edit")
         edit.resize(495, 453)
+        edit.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         font = QtGui.QFont()
         font.setFamily("RSU")
         edit.setFont(font)
@@ -209,7 +210,7 @@ class Ui_edit(object):
         self.label_6.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 20pt \"RSU\";")
         self.label_6.setObjectName("label_6")
-
+        
         self.retranslateUi(edit)
         QtCore.QMetaObject.connectSlotsByName(edit)
 
@@ -229,7 +230,7 @@ class Ui_edit(object):
         self.FecthButton.clicked.connect(self.fecthID)
         self.editButton.clicked.connect(self.editDatabase)
         self.deletedataButton.clicked.connect(self.removeDatabase)
-        self.cancleButton.clicked.connect(self.removeText)
+        self.cancleButton.clicked.connect(edit.close)
 
 
     def fecthID(self):
@@ -289,8 +290,8 @@ class Ui_edit(object):
             con = pymysql.connect(host="localhost", database="project python",
                                   user=userSQL, password=passSQL, charset="utf8")
             cursor = con.cursor()
-            cursor.execute("UPDATE coffee SET MENU_NAME=%s, MENU_DETAIL=%s, MENU_PRICE=%s ,MENU_Status=%s WHERE COFFEE_ID=%s" ,
-                           ( menu, description, price,status,ID))
+            cursor.execute("UPDATE coffee SET MENU_NAME=%s, MENU_DETAIL=%s, MENU_PRICE=%s, MENU_Status=%s WHERE COFFEE_ID=%s" ,
+                           (menu, description, price, status, ID))
             print("Edit data successfully")
             con.commit()
     

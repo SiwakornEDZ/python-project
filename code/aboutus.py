@@ -14,14 +14,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_uiHomePage(object):
     def setupUi(self, uiHomePage):
         uiHomePage.setObjectName("uiHomePage")
-        uiHomePage.resize(510, 349)
+        uiHomePage.setFixedSize(510, 349)
+        uiHomePage.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         uiHomePage.setAutoFillBackground(False)
         uiHomePage.setStyleSheet("background-color: rgb(97, 64, 0);")
         self.label = QtWidgets.QLabel(uiHomePage)
         self.label.setGeometry(QtCore.QRect(150, 30, 211, 51))
         font = QtGui.QFont()
-        font.setFamily("Cloud Light")
-        font.setPointSize(26)
+        font.setFamily("RSU")
+        font.setPointSize(40)
         self.label.setFont(font)
         self.label.setStyleSheet("QLabel {\n"
 "    Color: #FFF\n"
@@ -31,7 +32,7 @@ class Ui_uiHomePage(object):
         self.closeButton = QtWidgets.QPushButton(uiHomePage)
         self.closeButton.setGeometry(QtCore.QRect(170, 280, 161, 41))
         font = QtGui.QFont()
-        font.setFamily("Cloud Light")
+        font.setFamily("RSU")
         font.setPointSize(12)
         self.closeButton.setFont(font)
         self.closeButton.setStyleSheet("QPushButton {\n"
@@ -52,7 +53,7 @@ class Ui_uiHomePage(object):
         self.name1 = QtWidgets.QPushButton(uiHomePage)
         self.name1.setGeometry(QtCore.QRect(50, 120, 411, 51))
         font = QtGui.QFont()
-        font.setFamily("Cloud Light")
+        font.setFamily("RSU")
         font.setPointSize(14)
         self.name1.setFont(font)
         self.name1.setStyleSheet("QPushButton {\n"
@@ -73,7 +74,7 @@ class Ui_uiHomePage(object):
         self.name2 = QtWidgets.QPushButton(uiHomePage)
         self.name2.setGeometry(QtCore.QRect(50, 200, 411, 51))
         font = QtGui.QFont()
-        font.setFamily("Cloud Light")
+        font.setFamily("RSU")
         font.setPointSize(14)
         self.name2.setFont(font)
         self.name2.setStyleSheet("QPushButton {\n"
@@ -97,7 +98,7 @@ class Ui_uiHomePage(object):
 
     def retranslateUi(self, uiHomePage):
         _translate = QtCore.QCoreApplication.translate
-        uiHomePage.setWindowTitle(_translate("uiHomePage", "About Us Page"))
+        uiHomePage.setWindowTitle(_translate("uiHomePage", "About Us"))
         self.label.setText(_translate("uiHomePage", "About us"))
         self.closeButton.setText(_translate("uiHomePage", "EXIT"))
         self.name1.setText(_translate("uiHomePage", "นายศิวกร กาญธนะบัตร 116310462002-1"))

@@ -395,7 +395,7 @@
   </action>
  </widget>
  <resources>
-  <include location="python_project/image.qrc"/>
+  <include location="../image/image.qrc"/>
  </resources>
  <connections/>
 </ui>

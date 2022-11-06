@@ -12,11 +12,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
 from database import *
 
-
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(502, 500)
+        Form.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         font = QtGui.QFont()
         font.setFamily("RSU")
         Form.setFont(font)
@@ -190,7 +190,7 @@ class Ui_Form(object):
         self.AddpushButton.clicked.connect(self.insertDatabase)
         self.AddpushButton_2.clicked.connect(self.removeText)
         self.AddpushButton.clicked.connect(self.insertDatabase)
-        self.AddpushButton_2.clicked.connect(self.removeText)
+        self.AddpushButton_2.clicked.connect(Form.close)
 
     
     def insertDatabase(self):
@@ -198,7 +198,7 @@ class Ui_Form(object):
         menu = self.menucoffeetext.text()
         description = self.descriptiontext.text()
         price = self.pricetext.text()
-        status = self.pricetext.text()
+        status = self.statustext.text()
         if (ID == '' or menu == '' or description == '' or price == '' or status == ''):
             print("Please fill all data")
         else:
