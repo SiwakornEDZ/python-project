@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="image">
+    <file>123.jpg</file>
+    <file>derevo-coffee-kofe.jpg</file>
+    <file>minus.png</file>
+    <file>plus.png</file>
+    <file>123.png</file>
+  </qresource>
+</RCC>

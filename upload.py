@@ -26,35 +26,20 @@ class Ui_Form(object):
         font.setPointSize(20)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
-        self.plainTextEdit.setGeometry(QtCore.QRect(140, 60, 221, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.plainTextEdit.setFont(font)
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(Form)
-        self.plainTextEdit_2.setGeometry(QtCore.QRect(140, 110, 221, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.plainTextEdit_2.setFont(font)
-        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.plainTextEdit_3 = QtWidgets.QPlainTextEdit(Form)
-        self.plainTextEdit_3.setGeometry(QtCore.QRect(140, 160, 221, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.plainTextEdit_3.setFont(font)
-        self.plainTextEdit_3.setObjectName("plainTextEdit_3")
-        self.plainTextEdit_4 = QtWidgets.QPlainTextEdit(Form)
-        self.plainTextEdit_4.setGeometry(QtCore.QRect(140, 210, 221, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.plainTextEdit_4.setFont(font)
-        self.plainTextEdit_4.setObjectName("plainTextEdit_4")
         self.AddpushButton = QtWidgets.QPushButton(Form)
         self.AddpushButton.setGeometry(QtCore.QRect(150, 270, 91, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.AddpushButton.setFont(font)
+        self.AddpushButton.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.AddpushButton.setAcceptDrops(False)
+        self.AddpushButton.setShortcut("")
+        self.AddpushButton.setAutoDefault(False)
+        self.AddpushButton.setDefault(False)
+        self.AddpushButton.setFlat(False)
         self.AddpushButton.setObjectName("AddpushButton")
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(20, 70, 51, 21))
@@ -86,6 +71,30 @@ class Ui_Form(object):
         font.setPointSize(20)
         self.AddpushButton_2.setFont(font)
         self.AddpushButton_2.setObjectName("AddpushButton_2")
+        self.idcoffeetext = QtWidgets.QLineEdit(Form)
+        self.idcoffeetext.setGeometry(QtCore.QRect(150, 60, 131, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.idcoffeetext.setFont(font)
+        self.idcoffeetext.setObjectName("idcoffeetext")
+        self.menucoffeetext = QtWidgets.QLineEdit(Form)
+        self.menucoffeetext.setGeometry(QtCore.QRect(150, 110, 271, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.menucoffeetext.setFont(font)
+        self.menucoffeetext.setObjectName("menucoffeetext")
+        self.descriptiontext = QtWidgets.QLineEdit(Form)
+        self.descriptiontext.setGeometry(QtCore.QRect(150, 160, 271, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.descriptiontext.setFont(font)
+        self.descriptiontext.setObjectName("descriptiontext")
+        self.pricetext = QtWidgets.QLineEdit(Form)
+        self.pricetext.setGeometry(QtCore.QRect(150, 210, 131, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pricetext.setFont(font)
+        self.pricetext.setObjectName("pricetext")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -101,12 +110,12 @@ class Ui_Form(object):
         self.label_5.setText(_translate("Form", "ราคา"))
         self.AddpushButton_2.setText(_translate("Form", "ยกเลิก"))
         self.AddpushButton.clicked.connect(self.insertDatabase)
-
+    
     def insertDatabase(self):
-        ID = self.plainTextEdit.text()
-        menu = self.plainTextEdit_2.text()
-        description = self.plainTextEdit_3.text()
-        price = self.plainTextEdit_4.toPlainText()
+        ID = self.idcoffeetext.text()
+        menu = self.menucoffeetext.text()
+        description = self.descriptiontext.text()
+        price = self.pricetext.text()
         if (ID == '' or menu == '' or description == '' or price == ''):
             print("Please fill all data")
         else:
@@ -116,10 +125,10 @@ class Ui_Form(object):
             cursor.execute("INSERT INTO coffee (COFFEE_ID, MENU_NAME, MENU_DETAIL, MENU_PRICE) VALUES (%s, %s, %s, %s)",
                            (ID, menu, description, price))
             con.commit()
-            self.plainTextEdit.setText("")
-            self.plainTextEdit_2.setText("")
-            self.plainTextEdit_3.setText("")
-            self.plainTextEdit_4.setPlainText("")
+            self.idcoffeetext.setText("")
+            self.menucoffeetext.setText("")
+            self.descriptiontext.setText("")
+            self.pricetext.setText("")
 
 
 if __name__ == "__main__":
@@ -130,3 +139,12 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+
+
+# pic="""Ui_Form
+# {
+# background-image:url(C:\Users\max\Desktop\python project\photo\coffee.png);
+# background-reapeat: no-repeat;
+# background-pisition: center;
+# }
+# """

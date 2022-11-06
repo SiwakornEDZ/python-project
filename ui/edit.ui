@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>454</width>
-    <height>368</height>
+    <width>495</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="font">
@@ -18,19 +18,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(97, 64, 0);</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>10</y>
+     <x>170</x>
+     <y>20</y>
      <width>201</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>แก้ไขหรือลบเมนูกาแฟ</string>
@@ -39,19 +50,27 @@
   <widget class="QPushButton" name="editButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>270</y>
+     <x>140</x>
+     <y>350</y>
      <width>91</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>แก้ไข</string>
@@ -63,16 +82,24 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>70</y>
+     <x>40</x>
+     <y>80</y>
      <width>51</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>ID</string>
@@ -81,16 +108,24 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>110</y>
+     <x>40</x>
+     <y>120</y>
      <width>71</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>ชื่อเมนู</string>
@@ -99,16 +134,24 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>160</y>
+     <x>40</x>
+     <y>170</y>
      <width>111</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>รายละเอียด</string>
@@ -117,16 +160,24 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>230</y>
-     <width>47</width>
-     <height>13</height>
+     <x>40</x>
+     <y>240</y>
+     <width>51</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>ราคา</string>
@@ -135,19 +186,27 @@
   <widget class="QPushButton" name="cancleButton">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>270</y>
+     <x>250</x>
+     <y>350</y>
      <width>91</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>RSU</family>
      <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>ยกเลิก</string>
@@ -159,18 +218,24 @@
   <widget class="QPushButton" name="FecthButton">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>60</y>
+     <x>390</x>
+     <y>70</y>
      <width>71</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <family>RSU</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
    </property>
    <property name="text">
     <string>ค้นหา</string>
@@ -179,8 +244,8 @@
   <widget class="QPushButton" name="deletedataButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>320</y>
+     <x>140</x>
+     <y>400</y>
      <width>201</width>
      <height>41</height>
     </rect>
@@ -216,61 +281,142 @@ border: 1px solid #D5D8DC;</string>
   <widget class="QLineEdit" name="idcoffeetext">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>60</y>
+     <x>170</x>
+     <y>70</y>
      <width>101</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>RSU</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;RSU&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="menucoffeetext">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>110</y>
+     <x>170</x>
+     <y>120</y>
      <width>221</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>RSU</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;RSU&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="descriptiontext">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>160</y>
+     <x>170</x>
+     <y>170</y>
      <width>221</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>RSU</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;RSU&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="pricetext">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>220</y>
+     <x>170</x>
+     <y>230</y>
      <width>111</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>RSU</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;RSU&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pricetext_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>280</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>RSU</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;RSU&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>RSU</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 20pt &quot;RSU&quot;;</string>
+   </property>
+   <property name="text">
+    <string>จำนวนสินค้า</string>
    </property>
   </widget>
  </widget>

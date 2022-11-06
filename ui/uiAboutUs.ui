@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>uiHomePage</class>
+ <widget class="QDialog" name="uiHomePage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>510</width>
+    <height>349</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(97, 64, 0);</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>30</y>
+     <width>211</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>26</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	Color: #FFF
+}</string>
+   </property>
+   <property name="text">
+    <string>About us</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>280</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>EXIT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="name1">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>120</y>
+     <width>411</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>นายศิวกร กาญธนะบัตร 116310462002-1</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="name2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>200</y>
+     <width>411</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cloud Light</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 20px;
+	color: #FFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+QPushButton:hover {
+	border: 2px solid rgb(48, 50, 62);
+}
+QPushButton:hover:pressed
+{
+  border: 2px solid rgb(255, 73, 73);
+}</string>
+   </property>
+   <property name="text">
+    <string>นายบัณฑิต สงค์ประชา 116310462015-3</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

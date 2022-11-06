@@ -27,18 +27,6 @@ class Ui_edit(object):
         font.setPointSize(20)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.idcoffeetext = QtWidgets.QPlainTextEdit(edit)
-        self.idcoffeetext.setGeometry(QtCore.QRect(140, 60, 221, 41))
-        self.idcoffeetext.setObjectName("idcoffeetext")
-        self.menucoffeetext = QtWidgets.QPlainTextEdit(edit)
-        self.menucoffeetext.setGeometry(QtCore.QRect(140, 110, 221, 41))
-        self.menucoffeetext.setObjectName("menucoffeetext")
-        self.descriptiontext = QtWidgets.QPlainTextEdit(edit)
-        self.descriptiontext.setGeometry(QtCore.QRect(140, 160, 221, 41))
-        self.descriptiontext.setObjectName("descriptiontext")
-        self.pricetext = QtWidgets.QPlainTextEdit(edit)
-        self.pricetext.setGeometry(QtCore.QRect(140, 210, 221, 41))
-        self.pricetext.setObjectName("pricetext")
         self.editButton = QtWidgets.QPushButton(edit)
         self.editButton.setGeometry(QtCore.QRect(150, 270, 91, 41))
         font = QtGui.QFont()
@@ -66,7 +54,7 @@ class Ui_edit(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(edit)
-        self.label_5.setGeometry(QtCore.QRect(20, 220, 47, 13))
+        self.label_5.setGeometry(QtCore.QRect(20, 230, 47, 13))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.label_5.setFont(font)
@@ -100,8 +88,31 @@ class Ui_edit(object):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 7px;\n"
 "border: 1px solid #D5D8DC;")
-        self.deletedataButton.setCheckable(True)
         self.deletedataButton.setObjectName("deletedataButton")
+        self.idcoffeetext = QtWidgets.QLineEdit(edit)
+        self.idcoffeetext.setGeometry(QtCore.QRect(140, 60, 101, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.idcoffeetext.setFont(font)
+        self.idcoffeetext.setObjectName("idcoffeetext")
+        self.menucoffeetext = QtWidgets.QLineEdit(edit)
+        self.menucoffeetext.setGeometry(QtCore.QRect(140, 110, 221, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.menucoffeetext.setFont(font)
+        self.menucoffeetext.setObjectName("menucoffeetext")
+        self.descriptiontext = QtWidgets.QLineEdit(edit)
+        self.descriptiontext.setGeometry(QtCore.QRect(140, 160, 221, 51))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.descriptiontext.setFont(font)
+        self.descriptiontext.setObjectName("descriptiontext")
+        self.pricetext = QtWidgets.QLineEdit(edit)
+        self.pricetext.setGeometry(QtCore.QRect(140, 220, 111, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pricetext.setFont(font)
+        self.pricetext.setObjectName("pricetext")
 
         self.retranslateUi(edit)
         QtCore.QMetaObject.connectSlotsByName(edit)
@@ -119,6 +130,9 @@ class Ui_edit(object):
         self.FecthButton.setText(_translate("edit", "ค้นหา"))
         self.deletedataButton.setText(_translate("edit", "ลบข้อมูลทั้งหมด"))
         self.FecthButton.clicked.connect(self.fecthID)
+        self.editButton.clicked.connect(self.editDatabase)
+        self.deletedataButton.clicked.connect(self.removeDatabase)
+        self.cancleButton.clicked.connect(self.removeText)
 
 
     def fecthID(self):
@@ -136,38 +150,76 @@ class Ui_edit(object):
         cursor = con.cursor()
         cursor.execute(
             "SELECT MENU_NAME FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
-        COFFEE_ID = cursor.fetchone()
-        if COFFEE_ID == None:
+        MENU_NAME = cursor.fetchone()
+        if MENU_NAME == None:
             self.idcoffeetext.setText("ไม่พบชื่อเมนู")
             self.menucoffeetext.setText("ไม่พบชื่อเมนู")
             self.descriptiontext.setText("ไม่พบชื่อเมนู")
             self.pricetext.setText("ไม่พบชื่อเมนู")
-            # print("ไม่พบไอดีเมนู")
+            print("ไม่พบไอดีเมนู")
         else:
             self.fetchDatabase()
     
-    def fetchDatabase(self):  # ดึงข้อมูลจากฐานข้อมูลใส่ลงในช่อง Text
+    def fetchDatabase(self):  
         print('fetching database')
-        con = pymysql.connect(host="localhost", database="python_project",
+        con = pymysql.connect(host="localhost", database="project python",
                               user=userSQL, password=passSQL, charset="utf8")
         cursor = con.cursor()
         cursor.execute("SELECT MENU_NAME FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
         MENU_NAME = cursor.fetchone()
-        # cursor.execute("SELECT MENU_NAME FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
-        # author = cursor.fetchone()
         cursor.execute("SELECT MENU_DETAIL FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
         MENU_DETAIL = cursor.fetchone()
         cursor.execute("SELECT MENU_PRICE FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
         MENU_PRICE = cursor.fetchone()
-        # cursor.execute("SELECT MENU_NAME FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
-        # status = cursor.fetchone()
         self.menucoffeetext.setText(MENU_NAME[0])
         self.descriptiontext.setText(MENU_DETAIL[0])
         self.pricetext.setText(str(MENU_PRICE[0]))
-        # self.statusBook.setCurrentText(status[0])
         con.close()
-
     
+    def editDatabase(self): 
+         ID = self.idcoffeetext.text()
+         menu = self.menucoffeetext.text()
+         description = self.descriptiontext.text()
+         price = self.pricetext.text()
+         if (ID == '' or menu == '' or description == '' or price == ''):
+            print("Please fill all data")
+         else:
+            con = pymysql.connect(host="localhost", database="project python",
+                                  user=userSQL, password=passSQL, charset="utf8")
+            cursor = con.cursor()
+            cursor.execute("UPDATE coffee SET MENU_NAME=%s, MENU_DETAIL=%s, MENU_PRICE=%s WHERE COFFEE_ID=%s",
+                           ( menu, description, price,ID))
+            print("Edit data successfully")
+            con.commit()
+    
+    def removeDatabase(self):  
+        ID = self.idcoffeetext.text()
+        menu = self.menucoffeetext.text()
+        description = self.descriptiontext.text()
+        price = self.pricetext.text()
+        if (COFFEE_ID == ''):
+            print("Please fill Menu ID")
+            self.messageBoxFillId('ผิดพลาด', 'กรุณาใส่ไอดีเมนู')
+        else:
+            con = pymysql.connect(host="localhost", database="project python",
+                                  user=userSQL, password=passSQL, charset="utf8")
+            cursor = con.cursor()
+            checkBook = cursor.execute("SELECT COFFEE_ID FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
+            if checkBook == 0:
+                print("ไม่พบเมนู")
+            else:
+                cursor.execute("DELETE FROM coffee WHERE COFFEE_ID = %s", COFFEE_ID)
+                con.commit()
+                print("ลบข้อมูลสำเร็จ")
+                self.removeText()
+                con.close()
+    
+    def removeText(self):  
+        self.idcoffeetext.clear()
+        self.menucoffeetext.clear()
+        self.descriptiontext.clear()
+        self.pricetext.clear()
+
 
 
 if __name__ == "__main__":
@@ -178,7 +230,6 @@ if __name__ == "__main__":
     ui.setupUi(edit)
     edit.show()
     sys.exit(app.exec_())
-
 
     # project python
     # MENU_NAME, MENU_DETAIL, MENU_PRICE
