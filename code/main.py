@@ -16,8 +16,6 @@ import upload
 import aboutus
 import edit
 
-
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -31,6 +29,7 @@ class Ui_MainWindow(object):
         self.menutableWidget.setDragEnabled(True)
         self.menutableWidget.setObjectName("menutableWidget")
         self.menutableWidget.setColumnCount(3)
+        self.menutableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         # self.menutableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
@@ -38,18 +37,21 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(0, item)
+        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(1, item)
+        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(16)
         item.setFont(font)
         self.menutableWidget.setHorizontalHeaderItem(2, item)
+        self.menutableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.addList()
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 20, 201, 21))
@@ -256,19 +258,13 @@ class Ui_MainWindow(object):
         cursor.execute("SELECT MENU_NAME,MENU_PRICE,MENU_DETAIL FROM coffee")
         data = cursor.fetchall()
         print(data)
-        self.menutableWidget.setRowCount(20)
         tablerow = 0
         for i in data:
+            self.menutableWidget.insertRow(tablerow)
             self.menutableWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(i[0]))
             self.menutableWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(i[1])))
             self.menutableWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(i[2]))
             tablerow += 1
-                # self.maintableWidget.item(data.index(i)).setData(1,i[0])
-                # # self.listWidget.item(data.index(i)).setRowCount(0)
-                # self.maintableWidget.addItem(str(i[1]))
-                # self.maintableWidget.item(data.index(i)).setData(1,i[1])
-                # self.maintableWidget.addItem(str(i[2]))
-                # self.maintableWidget.item(data.index(i)).setData(1,i[2])
         con.close()
 
 

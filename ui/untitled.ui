@@ -17,7 +17,7 @@
    <widget class="QTableWidget" name="menutableWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>50</y>
       <width>651</width>
       <height>561</height>
@@ -299,6 +299,24 @@
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="gridWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>110</y>
+      <width>131</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/image/123.png);</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+    </layout>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menuBar">
@@ -411,7 +429,7 @@
   </action>
  </widget>
  <resources>
-  <include location="image.qrc"/>
+  <include location="../../../python_project/image.qrc"/>
  </resources>
  <connections/>
 </ui>
