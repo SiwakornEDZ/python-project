@@ -15,7 +15,7 @@ from database import *
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(502, 500)
+        Form.setFixedSize(502, 500)
         Form.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         font = QtGui.QFont()
         font.setFamily("RSU")

@@ -16,7 +16,8 @@ from database import *
 class Ui_signup(object):
     def setupUi(self, signup):
         signup.setObjectName("signup")
-        signup.resize(425, 464)
+        signup.setFixedSize(425, 464)
+        signup.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         signup.setStyleSheet("background-color: rgb(85, 255, 255);")
         self.lineEdit = QtWidgets.QLineEdit(signup)
         self.lineEdit.setGeometry(QtCore.QRect(170, 100, 221, 41))
@@ -40,6 +41,7 @@ class Ui_signup(object):
         self.lineEdit_3.setFont(font)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(signup)
+        self.lineEdit_4.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_4.setGeometry(QtCore.QRect(170, 280, 221, 41))
         font = QtGui.QFont()
         font.setFamily("RSU")
@@ -103,7 +105,7 @@ class Ui_signup(object):
 
     def retranslateUi(self, signup):
         _translate = QtCore.QCoreApplication.translate
-        signup.setWindowTitle(_translate("signup", "Form"))
+        signup.setWindowTitle(_translate("signup", "Admin Sign-up"))
         self.lineEdit.setPlaceholderText(_translate("signup", "FULL NAME"))
         self.lineEdit_2.setPlaceholderText(_translate("signup", "USERNAME"))
         self.lineEdit_3.setPlaceholderText(_translate("signup", "EMAIL"))

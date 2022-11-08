@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
+    <width>359</width>
     <height>511</height>
    </rect>
   </property>
@@ -16,13 +16,10 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: rgb(97, 64, 0);</string>
-  </property>
   <widget class="QLineEdit" name="usernameText">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>60</x>
      <y>180</y>
      <width>240</width>
      <height>40</height>
@@ -31,16 +28,16 @@
    <property name="font">
     <font>
      <family>RSU</family>
-     <pointsize>14</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
 	border: 2px solid rgb(37,39,48);
 	border-radius: 20px;
-	color: #FFF;
+	color: #000000;
 	padding-left: 20px;
 	padding-right: 20px;
 	backgroud-color: rgb(27, 29, 35);
@@ -60,7 +57,7 @@ backgroud-color: rgb(43, 45, 56);
   <widget class="QLineEdit" name="passwordText">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>60</x>
      <y>260</y>
      <width>240</width>
      <height>40</height>
@@ -68,8 +65,8 @@ backgroud-color: rgb(43, 45, 56);
    </property>
    <property name="font">
     <font>
-     <family>Unispace</family>
-     <pointsize>14</pointsize>
+     <family>RSU</family>
+     <pointsize>16</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -78,7 +75,7 @@ backgroud-color: rgb(43, 45, 56);
     <string notr="true">QLineEdit {
 	border: 2px solid rgb(37,39,48);
 	border-radius: 20px;
-	color: #FFF;
+	color: #000000;
 	padding-left: 20px;
 	padding-right: 20px;
 	backgroud-color: rgb(27, 29, 35);
@@ -98,7 +95,7 @@ backgroud-color: rgb(43, 45, 56);
   <widget class="QPushButton" name="loginbutton">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>110</x>
      <y>320</y>
      <width>141</width>
      <height>51</height>
@@ -110,14 +107,17 @@ backgroud-color: rgb(43, 45, 56);
      <pointsize>20</pointsize>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 	border: 2px solid rgb(37,39,48);
 	border-radius: 20px;
-	color: #FFF;
+	color: #000;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
+	background-color: rgb(255,255,255);
 }
 QPushButton:hover {
 	border: 2px solid rgb(48, 50, 62);
@@ -134,22 +134,27 @@ QPushButton:hover:pressed
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>80</y>
+     <x>50</x>
+     <y>70</y>
      <width>261</width>
-     <height>51</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>RSU</family>
-     <pointsize>26</pointsize>
+     <pointsize>48</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-	Color: #FFF
+	Color: #F9FF9C;
 }</string>
+   </property>
+   <property name="midLineWidth">
+    <number>0</number>
    </property>
    <property name="text">
     <string>เข้าสู่ระบบ</string>
@@ -161,7 +166,7 @@ QPushButton:hover:pressed
   <widget class="QPushButton" name="SignUpbutton">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>110</x>
      <y>390</y>
      <width>141</width>
      <height>51</height>
@@ -177,10 +182,10 @@ QPushButton:hover:pressed
     <string notr="true">QPushButton {
 	border: 2px solid rgb(37,39,48);
 	border-radius: 20px;
-	color: #FFF;
+	color: #000;
 	padding-left: 20px;
 	padding-right: 20px;
-	backgroud-color: rgb(27, 29, 35);
+	background-color: rgb(255,255,255);
 }
 QPushButton:hover {
 	border: 2px solid rgb(48, 50, 62);
@@ -194,7 +199,28 @@ QPushButton:hover:pressed
     <string>Sign Up</string>
    </property>
   </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>-50</x>
+     <y>-30</y>
+     <width>731</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/image/46513136054_e29230f97c_b.jpg);</string>
+   </property>
+  </widget>
+  <zorder>textEdit</zorder>
+  <zorder>usernameText</zorder>
+  <zorder>passwordText</zorder>
+  <zorder>label</zorder>
+  <zorder>SignUpbutton</zorder>
+  <zorder>loginbutton</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../python_project/image.qrc"/>
+ </resources>
  <connections/>
 </ui>

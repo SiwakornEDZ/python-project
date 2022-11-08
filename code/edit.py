@@ -17,7 +17,7 @@ from database import *
 class Ui_edit(object):
     def setupUi(self, edit):
         edit.setObjectName("edit")
-        edit.resize(495, 453)
+        edit.setFixedSize(495, 453)
         edit.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         font = QtGui.QFont()
         font.setFamily("RSU")

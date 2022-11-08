@@ -13,26 +13,27 @@ import pymysql
 import main
 import signup
 from database import *
+import image
 
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(520, 511)
+        Dialog.setFixedSize(365, 511)
+        Dialog.setWindowIcon(QtGui.QIcon(':image/icon.png'))
         Dialog.setAutoFillBackground(False)
-        Dialog.setStyleSheet("background-color: rgb(97, 64, 0);")
         self.usernameText = QtWidgets.QLineEdit(Dialog)
-        self.usernameText.setGeometry(QtCore.QRect(140, 180, 240, 40))
+        self.usernameText.setGeometry(QtCore.QRect(60, 190, 240, 40))
         font = QtGui.QFont()
         font.setFamily("RSU")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
         self.usernameText.setFont(font)
         self.usernameText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
-"    color: #FFF;\n"
+"    color: #000000;\n"
 "    padding-left: 20px;\n"
 "    padding-right: 20px;\n"
 "    backgroud-color: rgb(27, 29, 35);\n"
@@ -46,17 +47,18 @@ class Ui_Dialog(object):
 "}")
         self.usernameText.setObjectName("usernameText")
         self.passwordText = QtWidgets.QLineEdit(Dialog)
-        self.passwordText.setGeometry(QtCore.QRect(140, 260, 240, 40))
+        self.passwordText.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.passwordText.setGeometry(QtCore.QRect(60, 260, 240, 40))
         font = QtGui.QFont()
-        font.setFamily("Unispace")
-        font.setPointSize(14)
+        font.setFamily("RSU")
+        font.setPointSize(16)
         font.setBold(True)
         font.setWeight(75)
         self.passwordText.setFont(font)
         self.passwordText.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
-"    color: #FFF;\n"
+"    color: #000000;\n"
 "    padding-left: 20px;\n"
 "    padding-right: 20px;\n"
 "    backgroud-color: rgb(27, 29, 35);\n"
@@ -70,18 +72,19 @@ class Ui_Dialog(object):
 "}")
         self.passwordText.setObjectName("passwordText")
         self.loginbutton = QtWidgets.QPushButton(Dialog)
-        self.loginbutton.setGeometry(QtCore.QRect(200, 320, 141, 51))
+        self.loginbutton.setGeometry(QtCore.QRect(110, 320, 141, 51))
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(20)
         self.loginbutton.setFont(font)
+        self.loginbutton.setAutoFillBackground(False)
         self.loginbutton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
-"    color: #FFF;\n"
+"    color: #000;\n"
 "    padding-left: 20px;\n"
 "    padding-right: 20px;\n"
-"    backgroud-color: rgb(27, 29, 35);\n"
+"    background-color: rgb(255,255,255);\n"
 "}\n"
 "QPushButton:hover {\n"
 "    border: 2px solid rgb(48, 50, 62);\n"
@@ -92,18 +95,21 @@ class Ui_Dialog(object):
 "}")
         self.loginbutton.setObjectName("loginbutton")
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(130, 80, 261, 51))
+        self.label.setGeometry(QtCore.QRect(50, 70, 261, 71))
         font = QtGui.QFont()
         font.setFamily("RSU")
-        font.setPointSize(26)
+        font.setPointSize(48)
+        font.setBold(True)
+        font.setWeight(75)
         self.label.setFont(font)
         self.label.setStyleSheet("QLabel {\n"
-"    Color: #FFF\n"
+"    Color: #F9FF9C;\n"
 "}")
+        self.label.setMidLineWidth(0)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.SignUpbutton = QtWidgets.QPushButton(Dialog)
-        self.SignUpbutton.setGeometry(QtCore.QRect(200, 390, 141, 51))
+        self.SignUpbutton.setGeometry(QtCore.QRect(110, 390, 141, 51))
         font = QtGui.QFont()
         font.setFamily("RSU")
         font.setPointSize(20)
@@ -111,10 +117,10 @@ class Ui_Dialog(object):
         self.SignUpbutton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
 "    border-radius: 20px;\n"
-"    color: #FFF;\n"
+"    color: #000;\n"
 "    padding-left: 20px;\n"
 "    padding-right: 20px;\n"
-"    backgroud-color: rgb(27, 29, 35);\n"
+"    background-color: rgb(255,255,255);\n"
 "}\n"
 "QPushButton:hover {\n"
 "    border: 2px solid rgb(48, 50, 62);\n"
@@ -124,6 +130,16 @@ class Ui_Dialog(object):
 "  border: 2px solid rgb(255, 73, 73);\n"
 "}")
         self.SignUpbutton.setObjectName("SignUpbutton")
+        self.textEdit = QtWidgets.QTextEdit(Dialog)
+        self.textEdit.setGeometry(QtCore.QRect(-50, -30, 731, 551))
+        self.textEdit.setStyleSheet("border-image: url(:/image/46513136054_e29230f97c_b.jpg);")
+        self.textEdit.setObjectName("textEdit")
+        self.textEdit.raise_()
+        self.usernameText.raise_()
+        self.passwordText.raise_()
+        self.label.raise_()
+        self.SignUpbutton.raise_()
+        self.loginbutton.raise_()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -138,7 +154,7 @@ class Ui_Dialog(object):
         self.SignUpbutton.setText(_translate("Dialog", "Sign Up"))
         self.loginbutton.clicked.connect(self.login)
         self.SignUpbutton.clicked.connect(self.opensignup)
-
+        
     def login(self):
         username = self.usernameText.text()
         password = self.passwordText.text()
@@ -149,6 +165,7 @@ class Ui_Dialog(object):
         result = cursor.fetchone()
         if result:
             self.openHomepage()
+            Dialog.close()
             con.close()
         else:
             print('incorrect')
@@ -158,19 +175,12 @@ class Ui_Dialog(object):
         self.ui = main.Ui_MainWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-        close()
     
     def opensignup(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = signup.Ui_signup()
         self.ui.setupUi(self.window)
         self.window.show()
-
-def close():
-    Dialog.close
-     
-
-
 
 if __name__ == "__main__":
     import sys
