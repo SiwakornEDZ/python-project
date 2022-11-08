@@ -216,7 +216,7 @@ class Ui_edit(object):
 
     def retranslateUi(self, edit):
         _translate = QtCore.QCoreApplication.translate
-        edit.setWindowTitle(_translate("edit", "Edit Page"))
+        edit.setWindowTitle(_translate("edit", "Edit Menu"))
         self.label.setText(_translate("edit", "แก้ไขหรือลบเมนูกาแฟ"))
         self.editButton.setText(_translate("edit", "แก้ไข"))
         self.label_2.setText(_translate("edit", "ID"))
