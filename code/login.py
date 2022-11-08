@@ -11,6 +11,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
 import main
+import signup
+from database import *
 
 
 class Ui_Dialog(object):
@@ -46,7 +48,7 @@ class Ui_Dialog(object):
         self.passwordText = QtWidgets.QLineEdit(Dialog)
         self.passwordText.setGeometry(QtCore.QRect(140, 260, 240, 40))
         font = QtGui.QFont()
-        font.setFamily("RSU")
+        font.setFamily("Unispace")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
@@ -68,12 +70,10 @@ class Ui_Dialog(object):
 "}")
         self.passwordText.setObjectName("passwordText")
         self.loginbutton = QtWidgets.QPushButton(Dialog)
-        self.loginbutton.setGeometry(QtCore.QRect(190, 340, 141, 51))
+        self.loginbutton.setGeometry(QtCore.QRect(200, 320, 141, 51))
         font = QtGui.QFont()
         font.setFamily("RSU")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setPointSize(20)
         self.loginbutton.setFont(font)
         self.loginbutton.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(37,39,48);\n"
@@ -102,68 +102,74 @@ class Ui_Dialog(object):
 "}")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        Dialog.setWindowIcon(QtGui.QIcon(':image/icon.png'))
-        
+        self.SignUpbutton = QtWidgets.QPushButton(Dialog)
+        self.SignUpbutton.setGeometry(QtCore.QRect(200, 390, 141, 51))
+        font = QtGui.QFont()
+        font.setFamily("RSU")
+        font.setPointSize(20)
+        self.SignUpbutton.setFont(font)
+        self.SignUpbutton.setStyleSheet("QPushButton {\n"
+"    border: 2px solid rgb(37,39,48);\n"
+"    border-radius: 20px;\n"
+"    color: #FFF;\n"
+"    padding-left: 20px;\n"
+"    padding-right: 20px;\n"
+"    backgroud-color: rgb(27, 29, 35);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    border: 2px solid rgb(48, 50, 62);\n"
+"}\n"
+"QPushButton:hover:pressed\n"
+"{\n"
+"  border: 2px solid rgb(255, 73, 73);\n"
+"}")
+        self.SignUpbutton.setObjectName("SignUpbutton")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Login"))
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.usernameText.setPlaceholderText(_translate("Dialog", "Username"))
         self.passwordText.setPlaceholderText(_translate("Dialog", "Password"))
         self.loginbutton.setText(_translate("Dialog", "Login"))
         self.label.setText(_translate("Dialog", "เข้าสู่ระบบ"))
-        self.loginbutton.clicked.connect(self.callDatabase)
+        self.SignUpbutton.setText(_translate("Dialog", "Sign Up"))
+        self.loginbutton.clicked.connect(self.login)
+        self.SignUpbutton.clicked.connect(self.opensignup)
 
-    def callDatabase(self):
-        
+    def login(self):
         username = self.usernameText.text()
-        passsword = self.passwordText.text()
-        try:
-          sqlConnection = pymysql.connect(host="localhost", database="project python", user=username, password=passsword,
-                                        charset="utf8")
-        
-        except pymysql.err.OperationalError as e:
-                print("Error %d: %s" % (e.args[0], e.args[1]))
-                if(e.args[0]==1045):
-                    print("Invalid username or password")
-                elif(e.args[0]==1049):
-                    print("Database not found")
-                elif(e.args[0]==2003):
-                    print("Server not found")
-                elif(e.args[0]==2005):
-                    print("Unknown host")
-                elif(e.args[0]==2006):
-                    print("Server has gone away")
-                elif(e.args[0]==2013):
-                    print("Lost connection to MySQL server during query")
-                elif(e.args[0]==2019):
-                    print("Access denied for user")
-                elif(e.args[0]==2026):
-                    print("Too many connections")
-        else:
-            print("Connection successful")
+        password = self.passwordText.text()
+        con = pymysql.connect(host="localhost", database="project python",
+                        user=userSQL, password=passSQL, charset="utf8")
+        cursor = con.cursor()
+        cursor.execute("select * from log_db where Username='"+ username +"' and Password='"+ password +"'")
+        result = cursor.fetchone()
+        if result:
             self.openHomepage()
-            sqlConnection.close()
-
+            con.close()
+        else:
+            print('incorrect')
+    
     def openHomepage(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = main.Ui_MainWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-        closeWindows()
+        close()
+    
+    def opensignup(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = signup.Ui_signup()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
-def closeWindows():
-    Dialog.close()
+def close():
+    Dialog.close
+     
 
-def openHomepage2():
-    Dialog2 = QtWidgets.QDialog()
-    ui = main.Ui_uiHomePage()
-    ui.setupUi(Dialog2)
-    Dialog2.show()
-    Dialog2.exec()
 
 
 if __name__ == "__main__":
